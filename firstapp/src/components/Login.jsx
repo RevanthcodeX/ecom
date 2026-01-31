@@ -14,10 +14,9 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/login",
+        "https://ecom-jsam.onrender.com/api/login",
         newUser
       )
-
       if (response.status === 200) {
         localStorage.setItem("userId", response.data.userId)
         localStorage.setItem("role", response.data.role)
@@ -27,7 +26,6 @@ export default function Login() {
       alert(err.response?.data?.message || "Login failed")
     }
   }
-
   return (
     <div className="login-bg">
       <div className="login-card">
@@ -44,7 +42,6 @@ export default function Login() {
               required
             />
           </div>
-
           <div className="mb-3">
             <input
               type="password"
@@ -55,7 +52,6 @@ export default function Login() {
               required
             />
           </div>
-
           <div className="d-flex justify-content-between mb-4 text-white small">
             <div>
               <input type="checkbox" className="form-check-input me-1" />
@@ -63,11 +59,9 @@ export default function Login() {
             </div>
             <span className="cursor-pointer">Forgot password?</span>
           </div>
-
           <button className="btn btn-light w-100 fw-semibold">
             Log In
           </button>
-
           <p className="text-center text-white mt-4 mb-0">
             Don’t have an account?{" "}
             <Link to="/register" className="text-white fw-semibold">
